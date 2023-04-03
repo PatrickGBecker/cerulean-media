@@ -2,6 +2,7 @@ import React from 'react';
 import { FiPhone, FiMapPin } from 'react-icons/fi';
 import { BsEnvelope } from 'react-icons/bs';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { PageInfo } from '@/typings';
 
 type Inputs = {
     name: string;
@@ -10,9 +11,11 @@ type Inputs = {
     message: string;
 }; 
 
-type Props = {}
+type Props = {
+    pageInfo: PageInfo[];
+}
 
-function Contact({}: Props) {
+function Contact({ pageInfo }: Props) {
      const { 
         register, 
         handleSubmit, 
@@ -37,17 +40,17 @@ function Contact({}: Props) {
             <div className='space-y-10'>
                 <div className='flex items-center space-x-5 justify-center'>
                      <FiPhone className='text-[#85caff] h-7 w-7 animate-pulse' />
-                     <p className='text-2xl'>734-752-0492</p>
+                     <p className='text-2xl'>{pageInfo[0]?.phoneNumber}</p>
                 </div>
 
                 <div className='flex items-center space-x-5 justify-center'>
                      <FiMapPin className='text-[#85caff] h-7 w-7 animate-pulse' />
-                     <p className='text-2xl'>Denver Metropolitan Area</p>
+                     <p className='text-2xl'>{pageInfo[0].address}</p>
                 </div>
 
                 <div className='flex items-center space-x-5 justify-center'>
                      <BsEnvelope className='text-[#85caff] h-7 w-7 animate-pulse' />
-                     <p className='text-2xl'>mseverett89@gmail.com</p>
+                     <p className='text-2xl'>{pageInfo[0].email}</p>
                 </div>
             </div>
 

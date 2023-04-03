@@ -1,19 +1,21 @@
-import Image from 'next/image';
 import React from 'react';
 import { Cursor, useTypewriter } from 'react-simple-typewriter';
 import BackgroundCircles from './BackgroundCircles';
-import headshot from '../public/assets/headshot.png';
 import Link from 'next/link';
+import { PageInfo } from '@/typings';
+import { urlFor } from '@/sanity';
 
-type Props = {}
+type Props = {
+  pageInfo: PageInfo[];
+}
 
-function Hero({}: Props) {
+function Hero({ pageInfo }: Props) {
     const [text, count] = useTypewriter({
-        words: ['Oh, hi! my name is Michael Everett.',
-        'My production company is Cerulean Media, LLC.', 
-        'I hope we can make beautiful things together.', 
+        words: [
+          `Hi, my name is ${pageInfo[0]?.name}`,
+          'Welcome to Cerulean Media, LLC.', 
     ],
-    loop: false,
+    loop: 1,
     delaySpeed: 1000,
     });
 
@@ -22,11 +24,11 @@ function Hero({}: Props) {
         <BackgroundCircles />
         <img
             className='relative rounded-full h-40 w-40 object-cover'
-            src='https://scontent-ord5-1.xx.fbcdn.net/v/t39.30808-6/306321191_472923701516788_1036067590155672267_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=wiix7Tn6rJQAX80XrMD&_nc_ht=scontent-ord5-1.xx&oh=00_AfDxnait8cS1UU7KDIfOBlT5VJtm40vGe5cyK_sSq_f3yg&oe=640528BE'
+            src={urlFor(pageInfo[0]?.heroImage).url()}
             alt='Photo of Michael'
         />
         <div className='z-20'>
-            <h2 className='text-sm uppercase text-[#4a7eb3] pb-2 tracking-[15px]'>Videographer & Audio Engineer</h2>
+            <h2 className='text-sm uppercase text-[#4a7eb3] pb-2 tracking-[15px]'>{pageInfo[0]?.title}</h2>
             <h1 className='text-5xl lg:text-6xl font-semibold px-10'>
                 <span className='mr-3'>{text}</span>
                 <Cursor cursorColor='#4a7eb3' />

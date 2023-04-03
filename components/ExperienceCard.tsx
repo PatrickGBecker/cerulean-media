@@ -1,14 +1,13 @@
 import React from 'react'
 import { motion } from 'framer-motion';
-import { BsCameraReels, BsHeadphones} from 'react-icons/bs';
-import { AiOutlineAudio } from 'react-icons/ai';
-import { FiEdit } from 'react-icons/fi';
-import { RxMixerVertical } from 'react-icons/rx';
-import { SiAdobepremierepro, SiAdobeaudition, SiAdobephotoshop } from 'react-icons/si'
+import { Experience } from '@/typings';
+import { urlFor } from '@/sanity';
 
-type Props = {}
+type Props = {
+    experience: Experience;
+}
 
-function ExperienceCard({}: Props) {
+function ExperienceCard({ experience }: Props) {
   return (
     <article className='flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px] md:w-[600px] xl:w-[900px] snap-center p-10 bg-[#34597e] hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden'>
         <motion.img 
@@ -24,35 +23,38 @@ function ExperienceCard({}: Props) {
                 y: 0,
             }}
             className='h-32 w-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center'
-            src='https://scontent-ord5-1.xx.fbcdn.net/v/t39.30808-6/306321191_472923701516788_1036067590155672267_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=wiix7Tn6rJQAX80XrMD&_nc_ht=scontent-ord5-1.xx&oh=00_AfDxnait8cS1UU7KDIfOBlT5VJtm40vGe5cyK_sSq_f3yg&oe=640528BE'
+            src={urlFor(experience?.companyImage).url()}
             alt='Company Logo'
         />
 
-        <div className='px-0 md:px-10'>
-            <h4 className='text-4xl font-light'>CEO of Cerulean Media</h4>
-            <p className='font-bold text-2xl mt-1'> at Cerulean Media, LLC.</p>
-            <div className='flex space-x-2 my-2'>
-                <BsCameraReels className='h-10 w-10' />
-                <AiOutlineAudio className='h-10 w-10' />
-                <FiEdit className='h-10 w-10' />
-                <RxMixerVertical className='h-10 w-10' />
-                <BsHeadphones className='h-10 w-10' />
-                <SiAdobeaudition className='h-10 w-10' />
-                <SiAdobepremierepro className='h-10 w-10' />
-                <SiAdobephotoshop className='h-10 w-10' />
+         <div className="px-0 md:px-10 ">
+        <h4 className="text-4xl font-light">{experience.jobTitle}</h4>
+        <p className="font-bold text-2xl mt-1">{experience.company}</p>
+        {/* <div className="flex space-x-2 my-2">
+          {experience.technologies.map((technology) => (
+            <img
+              key={technology._id}
+              className="h-10 w-10 rounded-full"
+              src={urlFor(technology.image).url()}
+            />
+          ))}
+        </div> */}
 
-            </div>
-            <p className='uppercase py-5 text-[#4a7eb3]'>From 2016 to Present</p>
-            <ul className='list-disc space-y-4 ml-5 text-lg'>
-                <li>I am the Bossman AND Cameraman</li>
-                <li>I film people</li>
-                <li>I record their sounds</li>
-                <li>I make them look and sound better</li>
-                <li>I show them how much better I made them</li>
-            </ul>
-        </div>
+        <p className="uppercase py-5 text-gray-300">
+          {new Date(experience.dateStarted).toDateString()} -{" "}
+          {experience.isCurrentlyWorkingHere
+            ? "Present"
+            : new Date(experience.dateEnded).toDateString()}
+        </p>
+
+        <ul className="list-disc space-y-4 ml-5 text-lg pr-5 max-h-86 w-4/5 overflow-scroll scrollbar-thin scrollbar-track-[#51b4ff] scrollbar-thumb-[#85caff]">
+          {experience.points.map((point, i) => (
+            <li key={i}>{point}</li>
+          ))}
+        </ul>
+      </div>
     </article>
-  )
+  );
 }
 
 export default ExperienceCard
