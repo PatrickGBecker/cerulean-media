@@ -5,17 +5,19 @@ import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import Portfolio from '@/components/Portfolio'
 import Skills from '@/components/Skills'
-import { Experience, PageInfo, Project, SkillType, Social, Video } from '@/typings'
+import { Experience, Genre, PageInfo, Project, SkillType, Social, Video } from '@/typings'
 import { fetchPageInfo } from '../utils/fetchPageInfo';
 import { fetchExperiences } from '../utils/fetchExperiences';
 import { fetchSkills } from '../utils/fetchSkills';
 import { fetchProjects } from '../utils/fetchProjects';
 import { fetchSocials } from '../utils/fetchSocials';
+import { fetchVideos } from '@/utils/fetchVideos'
+import { fetchGenres } from '@/utils/fetchGenres'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import Image1 from '../public/assets/serious-about-img.png';
+import Image1 from '../public/assets/serious-about-img.png'
 
 interface Props {
   pageInfo: PageInfo[];
@@ -23,10 +25,12 @@ interface Props {
   skills: SkillType[];
   projects: Project[];
   socials: Social[];
+  videos: Video[];
+  genres: Genre[];
 }
 
 export default function Home({ 
-  pageInfo, experiences, skills, projects, socials 
+  pageInfo, experiences, skills, projects, socials, videos, genres
   }: Props) {
   return (
     <div className='bg-[#1e3348] text-[#7aa0c7] h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-[#34597e] scrollbar-thumb-[#4a7eb3]'>
@@ -56,7 +60,7 @@ export default function Home({
       </section>
 
       <section id='portfolio' className='snap-start'>
-        <Portfolio projects={projects} />
+        <Portfolio videos={videos} genres={genres}/>
       </section>
 
       <section id='contact' className='snap-start'>
@@ -84,6 +88,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const skills: SkillType[] = await fetchSkills();
   const projects: Project[] = await fetchProjects();
   const socials: Social[] = await fetchSocials();
+  const videos: Video[] = await fetchVideos();
+  const genres: Genre[] = await fetchGenres();
 
   return {
     props: {
@@ -92,6 +98,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       skills,
       projects,
       socials,
+      videos,
+      genres,
     },
     revalidate: 10,
   };

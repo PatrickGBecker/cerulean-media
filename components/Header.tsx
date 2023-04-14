@@ -1,8 +1,7 @@
 import React from 'react';
-import { SocialIcon } from 'react-social-icons';
 import { motion } from "framer-motion";
-import Link from 'next/link';
 import { Social } from '@/typings';
+import { FaFacebook, FaInstagram, FaLinkedin, FaRegEnvelope, FaSpotify, FaYoutube } from 'react-icons/fa';
 
 type Props = {
     socials: Social[];
@@ -10,34 +9,44 @@ type Props = {
 
 export default function Header({ socials }: Props) {
   return (
-    <header className='sticky top-0 p-5  flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center'>
+      <header className='sticky top-0 p-1  flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center'>
         <motion.div
             initial={{
-            x: -500,
-            opacity: 0,
-            scale: 0.5
-             }}
-             animate={{
+                x: -500,
+                opacity: 0,
+                scale: 0.5
+            }}
+            animate={{
                 x: 0,
                 opacity: 1,
                 scale: 1,
-             }}
-             transition={{
-                 duration: 1.5,
-             }}
+            }}
+            transition={{
+                duration: 1.5,
+            }}
             className='flex flex-row items-center'>
-            {socials.map((social) => (
-                <SocialIcon 
-                    key={social._id}
-                    url={social.url}
-                    fgColor='#7aa0c7' 
-                    bgColor='transparent'
-                    />
-                ))}
+                <a href={`${socials[0].url}`} target='_blank'>
+                <FaYoutube className='text-[#7aa0c7] text-3xl mx-2' />
+                </a>
+
+                <a href={`${socials[1].url}`} target='_blank'>
+                <FaInstagram className='text-[#7aa0c7] text-3xl mx-2' />
+                </a>
+
+                <a href={`${socials[2].url}`} target='_blank'>
+                <FaSpotify className='text-[#7aa0c7] text-3xl mx-2' />
+                </a>
+
+                <a href={`${socials[3].url}`} target='_blank'>
+                <FaLinkedin className='text-[#7aa0c7] text-3xl mx-2' />
+                </a>
+
+                <a href={`${socials[4].url}`} target='_blank'>
+                <FaFacebook className='text-[#7aa0c7] text-3xl mx-2' />
+                </a>
         </motion.div>
         
-        <Link href='#contact'>
-            <motion.div 
+        <motion.div 
                 initial={{
                 x: 500,
                 opacity: 0,
@@ -52,15 +61,14 @@ export default function Header({ socials }: Props) {
                     duration: 1.5,
                 }}
                 className='flex flex-row items-center text-[#7aa0c7] cursor-pointer'>
-                <SocialIcon 
-                    className='cursor-pointer'
-                    network='email'
-                    fgColor='#7aa0c7'
-                    bgColor='transparent'
-                />
-                <p className='uppercase hidden md:inline-flex text-sm text-[#7aa0c7]'>Get In Touch</p>
-            </motion.div>
-        </Link>
+                <a href='#contact'>
+                    <FaRegEnvelope className='text-[#7aa0c7] text-3xl mx-2' />
+                </a>
+                    <p className='uppercase hidden md:inline-flex text-sm text-[#7aa0c7]'>
+                        Get In Touch
+                    </p>
+        </motion.div>
+         
     </header>
   )
 }

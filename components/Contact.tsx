@@ -22,7 +22,7 @@ function Contact({ pageInfo }: Props) {
         } = useForm<Inputs>();
 
      const onSubmit: SubmitHandler<Inputs> = (formData) => {
-        window.location.href = `mailto:patrickgbecker@gmail?subject=${formData.subject}&body=Hi, my name is ${formData.name}. ${formData.message} (${formData.email})`;
+        //.location.href = `mailto:patrickgbecker@gmail?subject=${formData.subject}&body=Hi, my name is ${formData.name}. ${formData.message} (${formData.email})`;
      };
 
   return (
@@ -32,10 +32,6 @@ function Contact({ pageInfo }: Props) {
         </h3> 
 
         <div className='flex flex-col space-y-10'>
-            <h4 className='text-4xl font-semibold text-center'>
-                If I can't do it, you probably don't need it.{" "}
-                <span className='underline decoration-[#85caff]/90'>Let's Talk.</span>
-            </h4>
 
             <div className='space-y-10'>
                 <div className='flex items-center space-x-5 justify-center'>

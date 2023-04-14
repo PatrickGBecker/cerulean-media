@@ -1,15 +1,4 @@
-export interface Genre {
-    id: number
-    name: string
-}
 
-export interface Video {
-    title: string
-    media_type?: string
-    id: number
-    name: string
-    description: string
-}
 
 interface SanityBody {
     _createdAt: string;
@@ -25,7 +14,22 @@ interface Image {
         _type: 'reference';
     };
 }
+export interface Genre extends SanityBody {
+    _type: 'genre';
+    name: string;
+    title: string;
+    description: string;
+    videos: Video[];
+}
 
+export interface Video extends SanityBody {
+    _type: 'video';
+    title: string
+    image: Image
+    url: string
+    genre: Genre[]
+    description: string
+}
 export interface Technology extends SanityBody {
   _type: "skill";
   image: Image;

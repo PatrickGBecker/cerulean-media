@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useId } from 'react'
 import { motion } from 'framer-motion';
 import { Experience } from '@/typings';
 import { urlFor } from '@/sanity';
@@ -8,6 +8,7 @@ type Props = {
 }
 
 function ExperienceCard({ experience }: Props) {
+  const id = useId();
   return (
     <article className='flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px] md:w-[600px] xl:w-[900px] snap-center p-10 bg-[#34597e] hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden'>
         <motion.img 
@@ -49,7 +50,7 @@ function ExperienceCard({ experience }: Props) {
 
         <ul className="list-disc space-y-4 ml-5 text-lg pr-5 max-h-86 w-4/5 overflow-scroll scrollbar-thin scrollbar-track-[#51b4ff] scrollbar-thumb-[#85caff]">
           {experience.points.map((point, i) => (
-            <li key={i}>{point}</li>
+            <li key={`${id}-${i}`}>{point}</li>
           ))}
         </ul>
       </div>
