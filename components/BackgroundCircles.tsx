@@ -16,7 +16,7 @@ function BackgroundCircles({}: Props) {
             borderRadius: ['20%', '30%', '50%', '70%', '90%'],
         }}
         transition={{
-            duration: 2.5,
+            duration: 1.5,
         }}
         viewport={{
             once: true,

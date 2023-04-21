@@ -26,8 +26,8 @@ function Row({ title, videos, }: Props) {
   }
 
   return (
-    <div className="h-24 w-screen space-y-0.5 pt-8 md:space-y-2">
-      <h2 className="w-56 h-5 cursor-pointer text-sm font-semibold text-[#51b4ff]/70 transition duration-200 hover:text-[#51b4ff] md:text-xl">
+    <div className="h-24 w-screen space-y-0.5 md:pt-16 md:space-y-2">
+      <h2 className="w-56 h-5 cursor-pointer text-sm font-semibold text-[#85caff] hover:text-[#51b4ff] transition duration-200 md:text-xl">
         {title}
       </h2>
       <div className="group relative md:-ml-2">
@@ -38,7 +38,7 @@ function Row({ title, videos, }: Props) {
           onClick={() => handleClick('left')}
         />
         <div
-          className="flex items-center h-36 space-x-0.5 overflow-x-scroll md:space-x-2.5 md:p-2"
+          className="flex items-center space-x-0.5 overflow-x-scroll md:space-x-2.5 md:p-2"
           ref={rowRef}
         >
           {videos.map((video) => (

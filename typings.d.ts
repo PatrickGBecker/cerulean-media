@@ -22,13 +22,19 @@ export interface Genre extends SanityBody {
     videos: Video[];
 }
 
+export interface Audio extends SanityBody {
+    _type: 'audio';
+    title: string;
+    url: string;
+    description: string;
+}
 export interface Video extends SanityBody {
     _type: 'video';
-    title: string
-    image: Image
-    url: string
-    genre: Genre[]
-    description: string
+    title: string;
+    image: Image;
+    url: string;
+    genre: Genre[];
+    description: string;
 }
 export interface Technology extends SanityBody {
   _type: "skill";
@@ -55,15 +61,6 @@ export interface SkillType extends SanityBody {
     image: Image;
     description: string;
 }
-
-export interface Project extends SanityBody {
-    title: string;
-    _type: 'project';
-    image: Image;
-    summary: string;
-    url: string;
-}
-
 export interface Experience extends SanityBody {
     _type: 'experience';
     company: string;

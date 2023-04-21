@@ -21,12 +21,12 @@ function Skills({ skills }: Props) {
         }}
         className='h-screen flex relative flex-col text-center md:text-left xl:flex-row max-w-[2000px] xl:px-10 min-h-screen justify-center xl:space-y-0 mx-auto items-center'
     >
-    <h3 className='hidden sm:inline-flex absolute top-24 uppercase tracking-[20px] text-[#85caff] text-2xl'>
-        Skills
+    <h3 className='hidden sm:inline-flex absolute top-10 uppercase tracking-[20px] text-[#85caff] text-2xl'>
+        Services
     </h3>
 
-    <h3 className='hidden md:inline-flex absolute top-36 uppercase tracking-[3px] text-sm'>
-        Hover over skill for description
+    <h3 className='hidden md:inline-flex absolute top-20 uppercase tracking-[3px] text-sm'>
+        Hover for description
     </h3>
     
     <div className='grid grid-cols-4 gap-5'>

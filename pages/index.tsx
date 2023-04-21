@@ -5,14 +5,15 @@ import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import Portfolio from '@/components/Portfolio'
 import Skills from '@/components/Skills'
-import { Experience, Genre, PageInfo, Project, SkillType, Social, Video } from '@/typings'
+import AudioComponent from '@/components/AudioComponent'
+import { Experience, Genre, PageInfo, SkillType, Social, Video, Audio } from '@/typings'
 import { fetchPageInfo } from '../utils/fetchPageInfo';
 import { fetchExperiences } from '../utils/fetchExperiences';
 import { fetchSkills } from '../utils/fetchSkills';
-import { fetchProjects } from '../utils/fetchProjects';
 import { fetchSocials } from '../utils/fetchSocials';
 import { fetchVideos } from '@/utils/fetchVideos'
 import { fetchGenres } from '@/utils/fetchGenres'
+import { fetchAudio } from '@/utils/fetchAudio'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -23,14 +24,14 @@ interface Props {
   pageInfo: PageInfo[];
   experiences: Experience[];
   skills: SkillType[];
-  projects: Project[];
   socials: Social[];
   videos: Video[];
   genres: Genre[];
+  audio: Audio[];
 }
 
 export default function Home({ 
-  pageInfo, experiences, skills, projects, socials, videos, genres
+  pageInfo, experiences, skills, socials, videos, genres, audio
   }: Props) {
   return (
     <div className='bg-[#1e3348] text-[#7aa0c7] h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-[#34597e] scrollbar-thumb-[#4a7eb3]'>
@@ -63,6 +64,10 @@ export default function Home({
         <Portfolio videos={videos} genres={genres}/>
       </section>
 
+      <section id='audio' className='snap-start'>
+        <AudioComponent audio={audio} />
+      </section>
+
       <section id='contact' className='snap-start'>
         <Contact pageInfo={pageInfo}/>
       </section>
@@ -86,20 +91,20 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const pageInfo: PageInfo[] = await fetchPageInfo();
   const experiences: Experience[] = await fetchExperiences();
   const skills: SkillType[] = await fetchSkills();
-  const projects: Project[] = await fetchProjects();
   const socials: Social[] = await fetchSocials();
   const videos: Video[] = await fetchVideos();
   const genres: Genre[] = await fetchGenres();
+  const audio: Audio[] = await fetchAudio();
 
   return {
     props: {
       pageInfo,
       experiences,
       skills,
-      projects,
       socials,
       videos,
       genres,
+      audio,
     },
     revalidate: 10,
   };
