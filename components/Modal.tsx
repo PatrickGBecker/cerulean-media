@@ -58,7 +58,7 @@ function Modal() {
           <BsXLg className="h-8 w-8" />
         </button>
 
-        <div className="relative pt-[56.25%]">
+        <div className="relative pt-[60%]">
           <ReactPlayer
             url={video?.url}
             width="100%"

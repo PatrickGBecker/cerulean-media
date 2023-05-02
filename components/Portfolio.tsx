@@ -5,14 +5,16 @@ import { modalState, videoState } from '@/atoms/modalAtom';
 import Row from './Row';
 import Modal from './Modal';
 
+
 type Props = {
   videos: Video[];
   genres: Genre[];
 }
 
-function Portfolio({  videos, genres }: Props) {
+function Portfolio({ videos, genres }: Props) {
    const showModal = useRecoilValue(modalState)
    const video = useRecoilValue(videoState)
+ 
    
   return (
     <div className='h-screen relative flex overflow-hidden flex-col text-center justify-evenly mx-auto items-center'>

@@ -50,20 +50,20 @@ function Hero({ pageInfo }: Props) {
             </h1>
 
             <div className='pt-5'>
-                <Link href='#about'>
-                    <button className='heroButton'>About</button>
-                </Link>
-                  <Link href='#experience'>
-                    <button className='heroButton'>Experience</button>
-                </Link>
-                  <Link href='#skills'>
-                    <button className='heroButton'>Services</button>
-                </Link>
-                  <Link href='#portfolio'>
+                <Link href='#portfolio'>
                     <button className='heroButton'>Videography</button>
                 </Link>
                 <Link href='#audio'>
                     <button className='heroButton'>Audio Engineering</button>
+                </Link>
+                  <Link href='#skills'>
+                    <button className='heroButton'>Services</button>
+                </Link>
+                  <Link href='#experience'>
+                    <button className='heroButton'>Experience</button>
+                </Link>
+                <Link href='#about'>
+                    <button className='heroButton'>About</button>
                 </Link>
             </div>
         </div>

@@ -9,6 +9,7 @@ type Props = {
 
 function ExperienceCard({ experience }: Props) {
   const id = useId();
+  
   return (
     <article className='flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px] md:w-[600px] xl:w-[900px] snap-center p-10 bg-[#34597e] hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden'>
         <motion.img 
@@ -23,7 +24,7 @@ function ExperienceCard({ experience }: Props) {
                 opacity: 1,
                 y: 0,
             }}
-            className='h-32 w-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center'
+            className='h-32 w-32 rounded-full xl:w-[200px] xl:h-[200px] object-center'
             src={urlFor(experience?.companyImage).url()}
             alt='Company Logo'
         />
@@ -31,28 +32,12 @@ function ExperienceCard({ experience }: Props) {
          <div className="px-0 md:px-10 ">
         <h4 className="text-4xl font-light">{experience.jobTitle}</h4>
         <p className="font-bold text-2xl mt-1">{experience.company}</p>
-        {/* <div className="flex space-x-2 my-2">
-          {experience.technologies.map((technology) => (
-            <img
-              key={technology._id}
-              className="h-10 w-10 rounded-full"
-              src={urlFor(technology.image).url()}
-            />
-          ))}
-        </div> */}
+    
 
-        <p className="uppercase py-5 text-gray-300">
-          {new Date(experience.dateStarted).toDateString()} -{" "}
-          {experience.isCurrentlyWorkingHere
-            ? "Present"
-            : new Date(experience.dateEnded).toDateString()}
+        <p className="lowercase py-2 text-gray-[#51b4ff]">
+          {experience.email}
         </p>
 
-        <ul className="list-disc space-y-4 ml-5 text-lg pr-5 max-h-86 w-4/5 overflow-scroll scrollbar-thin scrollbar-track-[#51b4ff] scrollbar-thumb-[#85caff]">
-          {experience.points.map((point, i) => (
-            <li key={`${id}-${i}`}>{point}</li>
-          ))}
-        </ul>
       </div>
     </article>
   );

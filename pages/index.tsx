@@ -6,6 +6,7 @@ import Hero from '@/components/Hero'
 import Portfolio from '@/components/Portfolio'
 import Skills from '@/components/Skills'
 import AudioComponent from '@/components/AudioComponent'
+import Spotlight from '@/components/Spotlight'
 import { Experience, Genre, PageInfo, SkillType, Social, Video, Audio } from '@/typings'
 import { fetchPageInfo } from '../utils/fetchPageInfo';
 import { fetchExperiences } from '../utils/fetchExperiences';
@@ -20,6 +21,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Image1 from '../public/assets/serious-about-img.png'
 
+
 interface Props {
   pageInfo: PageInfo[];
   experiences: Experience[];
@@ -30,9 +32,12 @@ interface Props {
   audio: Audio[];
 }
 
+
+
 export default function Home({ 
   pageInfo, experiences, skills, socials, videos, genres, audio
-  }: Props) {
+}: Props) {
+
   return (
     <div className='bg-[#1e3348] text-[#7aa0c7] h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-[#34597e] scrollbar-thumb-[#4a7eb3]'>
       <Head>
@@ -48,18 +53,6 @@ export default function Home({
         <Hero pageInfo={pageInfo}/>
       </section>
 
-      <section id='about' className='snap-center'>
-        <About pageInfo={pageInfo}/>
-      </section>
-
-      <section id='experience' className='snap-center'>
-        <WorkExperience experiences={experiences} />
-      </section>
-
-      <section id='skills' className='snap-start'>
-        <Skills skills={skills} />
-      </section>
-
       <section id='portfolio' className='snap-start'>
         <Portfolio videos={videos} genres={genres}/>
       </section>
@@ -68,6 +61,18 @@ export default function Home({
         <AudioComponent audio={audio} />
       </section>
 
+      <section id='skills' className='snap-start'>
+        <Skills skills={skills} />
+      </section>
+
+      <section id='experience' className='snap-center'>
+        <WorkExperience experiences={experiences} />
+      </section>
+
+      <section id='about' className='snap-center'>
+        <About pageInfo={pageInfo}/>
+      </section>
+      
       <section id='contact' className='snap-start'>
         <Contact pageInfo={pageInfo}/>
       </section>

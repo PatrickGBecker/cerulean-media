@@ -62,6 +62,7 @@ export interface SkillType extends SanityBody {
     description: string;
 }
 export interface Experience extends SanityBody {
+    email: ReactNode;
     _type: 'experience';
     company: string;
     companyImage: Image;

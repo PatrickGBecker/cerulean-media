@@ -18,6 +18,8 @@
     "@types/node": "18.14.2",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
+    "flowbite": "^1.6.5",
+    "flowbite-react": "^0.4.4",
     "framer-motion": "^10.0.1",
     "next": "13.2.3",
     "next-sanity": "^4.1.5",
