@@ -15,6 +15,5 @@ export default async function handler(
     res: NextApiResponse<Data>
 ) {
     const videos: Video[] = await sanityClient.fetch(query)
-    console.log('videos :', videos)
     res.status(200).json({ videos })
 }

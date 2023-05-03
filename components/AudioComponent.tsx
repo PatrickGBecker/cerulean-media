@@ -1,4 +1,3 @@
-import React from 'react'
 import { Audio } from '@/typings'
 
 type Props = {

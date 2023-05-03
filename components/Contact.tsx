@@ -1,4 +1,3 @@
-import React from 'react';
 import { FiPhone, FiMapPin } from 'react-icons/fi';
 import { BsEnvelope } from 'react-icons/bs';
 import { SubmitHandler, useForm } from 'react-hook-form';

@@ -1,18 +1,15 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useRecoilState } from 'recoil'
 import { modalState, videoState } from '../atoms/modalAtom'
 import ReactPlayer from 'react-player/lazy'
-import { FaPlay } from 'react-icons/fa'
 import {
-  BsCheckLg,
-  BsPlusLg,
   BsVolumeMute,
   BsVolumeUp,
   BsXLg,
 } from 'react-icons/bs'
-import { Genre, Video } from '../typings'
+import {  Video } from '../typings'
 import MuiModal from '@mui/material/Modal'
-import toast, { Toaster } from 'react-hot-toast'
+
 
 interface Props {
     videos: Video[];
@@ -24,23 +21,9 @@ function Modal() {
   const [showModal, setShowModal] = useRecoilState(modalState)
   const [muted, setMuted] = useState(false)
 
-
-
-  const toastStyle = {
-    background: 'white',
-    color: 'black',
-    fontWeight: 'bold',
-    fontSize: '16px',
-    padding: '15px',
-    borderRadius: '9999px',
-    maxWidth: '1000px',
-  }
-
- 
   const handleClose = () => {
     setShowModal(false)
     setVideo(null)
-    toast.dismiss()
   }
 
   return (
@@ -50,7 +33,6 @@ function Modal() {
       className="fixed !top-7 left-0 right-0 z-50 mx-auto w-full max-w-5xl overflow-hidden overflow-y-scroll rounded-md scrollbar-hide"
     >
       <>
-        <Toaster position="bottom-center" />
         <button
           className="modalButton absolute right-5 top-5 !z-40 h-9 w-9 border-none"
           onClick={handleClose}

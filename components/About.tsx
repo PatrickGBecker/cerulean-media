@@ -1,4 +1,3 @@
-import React from 'react'
 import { motion } from 'framer-motion'
 import { PageInfo } from '@/typings';
 import { urlFor } from '@/sanity';
@@ -37,7 +36,7 @@ export default function About({ pageInfo }: Props) {
                 duration: 1.2,
             }}
             viewport={{
-                once: true
+                once: false,
             }}
             className='-mb-20 md:mb-0 flex-shrink w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[400px] xl:h-[500px]'
              src={urlFor(pageInfo[0].profilePic).url()}

@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from "framer-motion";
 import { Social } from '@/typings';
 import { FaFacebook, FaInstagram, FaLinkedin, FaRegEnvelope, FaSpotify, FaYoutube } from 'react-icons/fa';

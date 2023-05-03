@@ -6,7 +6,6 @@ import Hero from '@/components/Hero'
 import Portfolio from '@/components/Portfolio'
 import Skills from '@/components/Skills'
 import AudioComponent from '@/components/AudioComponent'
-import Spotlight from '@/components/Spotlight'
 import { Experience, Genre, PageInfo, SkillType, Social, Video, Audio } from '@/typings'
 import { fetchPageInfo } from '../utils/fetchPageInfo';
 import { fetchExperiences } from '../utils/fetchExperiences';
@@ -17,13 +16,12 @@ import { fetchGenres } from '@/utils/fetchGenres'
 import { fetchAudio } from '@/utils/fetchAudio'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import Link from 'next/link'
-import Image1 from '../public/assets/serious-about-img.png'
+import { urlFor } from '@/sanity'
+
 
 
 interface Props {
-  featuredGenres: Genre[];
   pageInfo: PageInfo[];
   experiences: Experience[];
   skills: SkillType[];
@@ -36,7 +34,7 @@ interface Props {
 
 
 export default function Home({ 
-  featuredGenres, pageInfo, experiences, skills, socials, videos, genres, audio
+   pageInfo, experiences, skills, socials, videos, genres, audio
 }: Props) {
 
   return (
@@ -55,7 +53,7 @@ export default function Home({
       </section>
 
       <section id='portfolio' className='snap-start'>
-        <Portfolio videos={videos} genres={genres} featuredGenres={featuredGenres} />
+        <Portfolio videos={videos} genres={genres} />
       </section>
 
       <section id='audio' className='snap-start'>
@@ -81,9 +79,9 @@ export default function Home({
       <Link href='#hero'>
         <footer className='sticky bottom-5 w-full cursor-pointer'>
           <div className='flex items-center justify-center'>
-            <Image 
+            <img 
               className='h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer'
-              src={Image1}
+              src={urlFor(pageInfo[0]?.profilePic).url()}
               alt='Photo of Michael and link back to Home page'
             />
           </div>
@@ -100,12 +98,10 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const socials: Social[] = await fetchSocials();
   const videos: Video[] = await fetchVideos();
   const genres: Genre[] = await fetchGenres();
-  const featuredGenres: Genre[] = genres.filter((genre) => genre.featured === true);
   const audio: Audio[] = await fetchAudio();
 
   return {
     props: {
-      featuredGenres,
       pageInfo,
       experiences,
       skills,

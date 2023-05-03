@@ -8,7 +8,7 @@ interface Props {
   videos: Video[] 
 }
 
-function Row({ title, videos, }: Props) {
+function Row({ title, videos }: Props) {
   const rowRef = useRef<HTMLDivElement>(null)
   const [isMoved, setIsMoved] = useState(false)
 
@@ -42,7 +42,7 @@ function Row({ title, videos, }: Props) {
           ref={rowRef}
         >
           {videos.map((video) => ( 
-            <div>
+            <div key={video._id}>
             <Thumbnail key={video._id} video={video}/>
             </div>
           ))}
