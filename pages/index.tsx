@@ -23,6 +23,7 @@ import Image1 from '../public/assets/serious-about-img.png'
 
 
 interface Props {
+  featuredGenres: Genre[];
   pageInfo: PageInfo[];
   experiences: Experience[];
   skills: SkillType[];
@@ -35,7 +36,7 @@ interface Props {
 
 
 export default function Home({ 
-  pageInfo, experiences, skills, socials, videos, genres, audio
+  featuredGenres, pageInfo, experiences, skills, socials, videos, genres, audio
 }: Props) {
 
   return (
@@ -54,7 +55,7 @@ export default function Home({
       </section>
 
       <section id='portfolio' className='snap-start'>
-        <Portfolio videos={videos} genres={genres}/>
+        <Portfolio videos={videos} genres={genres} featuredGenres={featuredGenres} />
       </section>
 
       <section id='audio' className='snap-start'>
@@ -99,10 +100,12 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const socials: Social[] = await fetchSocials();
   const videos: Video[] = await fetchVideos();
   const genres: Genre[] = await fetchGenres();
+  const featuredGenres: Genre[] = genres.filter((genre) => genre.featured === true);
   const audio: Audio[] = await fetchAudio();
 
   return {
     props: {
+      featuredGenres,
       pageInfo,
       experiences,
       skills,

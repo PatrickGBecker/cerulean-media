@@ -4,18 +4,23 @@ import { useRecoilValue } from 'recoil';
 import { modalState, videoState } from '@/atoms/modalAtom';
 import Row from './Row';
 import Modal from './Modal';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { urlFor } from '@/sanity';
+import Link from 'next/link';
 
 
 type Props = {
   videos: Video[];
   genres: Genre[];
+  featuredGenres: Genre[];
 }
 
-function Portfolio({ videos, genres }: Props) {
+function Portfolio({ videos, genres, featuredGenres }: Props) {
    const showModal = useRecoilValue(modalState)
    const video = useRecoilValue(videoState)
  
-   
+   console.log('featuredGenre ', featuredGenres)
   return (
     <div className='h-screen relative flex overflow-hidden flex-col text-center justify-evenly mx-auto items-center'>
       <h3 className='hidden md:inline-flex absolute top-10 uppercase tracking-[20px] text-[#85caff] text-2xl'> 

@@ -2,7 +2,6 @@ import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import { useRef, useState } from 'react'
 import { Video } from '../typings'
 import Thumbnail from './Thumbnail';
-import Spotlight from './Spotlight';
 
 interface Props {
   title: string
@@ -43,7 +42,9 @@ function Row({ title, videos, }: Props) {
           ref={rowRef}
         >
           {videos.map((video) => ( 
+            <div>
             <Thumbnail key={video._id} video={video}/>
+            </div>
           ))}
         </div>
         <BsChevronRight

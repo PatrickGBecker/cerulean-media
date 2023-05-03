@@ -20,6 +20,12 @@ export interface Genre extends SanityBody {
     title: string;
     description: string;
     videos: Video[];
+    featured: boolean;
+    banner: Image;
+    slug: {
+        _type: 'slug';
+        current: string;
+    };
 }
 
 export interface Audio extends SanityBody {
