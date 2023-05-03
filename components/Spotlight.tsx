@@ -15,7 +15,7 @@ type Props = {
 }
 
 function Spotlight({ video, genre }: Props) {
-    const [movie, setMovie] = useState<Video | null>(null)
+{/*}  const [movie, setMovie] = useState<Video | null>(null)
     const [currentMovie, setCurrentMovie] = useRecoilState(videoState)
     const [showModal, setShowModal] = useRecoilState(modalState)
 
@@ -61,7 +61,7 @@ function Spotlight({ video, genre }: Props) {
      return (
 
      )
-  
+   */}
 }
 
 export default Spotlight
