@@ -18,8 +18,7 @@ import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import { urlFor } from '@/sanity'
-
-
+import Spotlight from '@/components/Spotlight'
 
 interface Props {
   pageInfo: PageInfo[];
@@ -30,7 +29,6 @@ interface Props {
   genres: Genre[];
   audio: Audio[];
 }
-
 
 
 export default function Home({ 

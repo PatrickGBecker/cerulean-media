@@ -43,7 +43,7 @@ function Row({ title, videos }: Props) {
         >
           {videos.map((video) => ( 
             <div key={video._id}>
-            <Thumbnail key={video._id} video={video}/>
+            <Thumbnail video={video}/>
             </div>
           ))}
         </div>

@@ -5,7 +5,7 @@ import { Genre } from "@/typings";
 
 const query = groq`
     *[_type == 'genre'] {
-    _id, title,
+    _id, title, featured,
     'videos': *[_type == 'video' && references(^._id)]
 }
 `
@@ -19,4 +19,5 @@ export default async function handler(
 ) {
     const genres: Genre[] = await sanityClient.fetch(query)
     res.status(200).json({ genres })
+    console.log('genre', genres)
 }

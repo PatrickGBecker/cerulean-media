@@ -3,6 +3,10 @@ import { useRecoilValue } from 'recoil';
 import { modalState, videoState } from '@/atoms/modalAtom';
 import Row from './Row';
 import Modal from './Modal';
+import Carousel from 'better-react-carousel';
+import { urlFor } from '@/sanity';
+import aboutImg from '..public/assets/about-img.png'
+import Spotlight from './Spotlight';
 
 
 type Props = {
@@ -13,13 +17,13 @@ type Props = {
 function Portfolio({ videos, genres }: Props) {
    const showModal = useRecoilValue(modalState)
    const video = useRecoilValue(videoState)
- 
    
   return (
-    <div className='h-screen relative flex overflow-hidden flex-col text-center justify-evenly mx-auto items-center'>
+    <div className='h-screen relative flex flex-col text-center justify-evenly mx-auto items-center'>
       <h3 className='hidden md:inline-flex absolute top-10 uppercase tracking-[20px] text-[#85caff] text-2xl'> 
             Videography
         </h3> 
+        
       <div
         className={`pl-4 relative flex flex-col text-left md:flex-row max-w-full mx-auto z-0 lg:h-[140vh] ${
           showModal && '!h-screen overflow-hidden'
@@ -27,6 +31,8 @@ function Portfolio({ videos, genres }: Props) {
 
       <main className="relative md:pb-24 lg:space-y-24 lg:pl-16 ">
         <section className="space-y-16 md:space-y-24 overscroll-hidden">
+        
+               
         {genres.map((genre) => (
           <Row key={genre._id} 
               title={genre.title} 
