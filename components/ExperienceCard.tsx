@@ -24,14 +24,14 @@ function ExperienceCard({ experience }: Props) {
                 opacity: 1,
                 y: 0,
             }}
-            className='h-32 w-32 rounded-full xl:w-[200px] xl:h-[200px] object-center'
+            className='h-24 w-24 rounded-full md:h-32 w-32 xl:w-[200px] xl:h-[200px] object-center'
             src={urlFor(experience?.companyImage).url()}
             alt='Company Logo'
         />
 
          <div className="px-0 md:px-10 ">
-        <h4 className="text-4xl font-light">{experience.jobTitle}</h4>
-        <p className="font-bold text-2xl mt-1">{experience.company}</p>
+        <h4 className="w-60 text-md font-light md:text-4xl text-center">{experience.jobTitle}</h4>
+        <p className="font-bold text-md mt-1 md:text-2xl">{experience.company}</p>
     
 
         <p className="lowercase py-2 text-gray-[#51b4ff]">

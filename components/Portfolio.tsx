@@ -16,7 +16,7 @@ function Portfolio({ videos, genres }: Props) {
  
    
   return (
-    <div className='h-screen relative flex overflow-hidden flex-col text-center justify-evenly mx-auto items-center'>
+    <div className='h-screen relative flex flex-col text-center justify-evenly mx-auto items-center pb-2'>
       <h3 className='hidden md:inline-flex absolute top-10 uppercase tracking-[20px] text-[#85caff] text-2xl'> 
             Videography
         </h3> 
