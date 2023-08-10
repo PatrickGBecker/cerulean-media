@@ -7,8 +7,9 @@ export default defineConfig({
   name: 'default',
   title: 'cerulean-media',
 
-  projectId: 'bcjr23an',
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: 'production',
+  token: process.env.NEXT_PUBLIC_SANITY_API_TOKEN,
 
   plugins: [deskTool(), visionTool()],
 

@@ -7,6 +7,7 @@ const nextConfig = {
     EMAIL: process.env.EMAIL,
     VERIFIED_EMAIL: process.env.VERIFIED_EMAIL,
     NEXT_PUBLIC_SANITY_PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+    NEXT_PUBLIC_SANITY_BUILD_TOKEN: process.env.NEXT_PUBLIC_SANITY_BUILD_TOKEN,
   },
   reactStrictMode: true,
   compiler: {
