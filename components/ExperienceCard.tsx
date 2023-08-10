@@ -1,4 +1,3 @@
-import { useId } from 'react'
 import { motion } from 'framer-motion';
 import { Experience } from '@/typings';
 import { urlFor } from '@/sanity';
@@ -8,7 +7,7 @@ type Props = {
 }
 
 function ExperienceCard({ experience }: Props) {
-  const id = useId();
+  
   
   return (
     <article className='flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px] md:w-[600px] xl:w-[900px] snap-center p-10 bg-[#34597e] hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden'>
@@ -24,7 +23,7 @@ function ExperienceCard({ experience }: Props) {
                 opacity: 1,
                 y: 0,
             }}
-            className='h-24 w-24 rounded-full md:h-32 w-32 xl:w-[200px] xl:h-[200px] object-center'
+            className='h-24 w-24 rounded-full md:h-32 md:w-32 xl:w-[200px] xl:h-[200px] object-center'
             src={urlFor(experience?.companyImage).url()}
             alt='Company Logo'
         />

@@ -10,7 +10,7 @@ export default defineConfig({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: 'production',
   token: process.env.NEXT_PUBLIC_SANITY_API_TOKEN,
-  apiVersion: '2023-02-01',
+  apiVersion: '2021-03-25',
 
   plugins: [deskTool(), visionTool()],
 
