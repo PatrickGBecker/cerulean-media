@@ -3,7 +3,6 @@ import { PageInfo } from '../typings';
 export const fetchPageInfo = async () => {
   try {
     const res = await fetch(`http://localhost:3000/api/getPageInfo`);
-    console.log(res);
     // check res for error
     if (!res.ok) {
       console.log(res.statusText);
