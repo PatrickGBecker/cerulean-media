@@ -15,18 +15,11 @@ import {
   Video,
   Audio,
 } from '@/typings';
-import { fetchPageInfo } from '../utils/fetchPageInfo';
-import { fetchExperiences } from '../utils/fetchExperiences';
-import { fetchSkills } from '../utils/fetchSkills';
-import { fetchSocials } from '../utils/fetchSocials';
-import { fetchVideos } from '@/utils/fetchVideos';
-import { fetchGenres } from '@/utils/fetchGenres';
-import { fetchAudio } from '@/utils/fetchAudio';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import { urlFor } from '@/sanity';
-import { getPageStaticInfo } from 'next/dist/build/analysis/get-page-static-info';
+
 import { getPageStaticProps } from './api/getPageInfo';
 import { getExperiencesStaticPops } from './api/getExperience';
 import { getSkillsStaticProps } from './api/getSkills';
@@ -55,59 +48,58 @@ export default function Home({
   genres,
   audio,
 }: Props) {
-  return <h1> hiiii</h1>;
-  // return (
-  //   <div className='bg-[#1e3348] text-[#7aa0c7] h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-[#34597e] scrollbar-thumb-[#4a7eb3]'>
-  //     <Head>
-  //       <title>Cerulean Media, LLC. Company Site</title>
-  //       <meta name="description" />
-  //       <meta name="viewport" content="width=device-width, initial-scale=1" />
-  //       <link rel="icon" href="/favicon.ico" />
-  //     </Head>
+  return (
+    <div className="bg-[#1e3348] text-[#7aa0c7] h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-[#34597e] scrollbar-thumb-[#4a7eb3]">
+      <Head>
+        <title>Cerulean Media, LLC. Company Site</title>
+        <meta name="description" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-  //     <Header socials={socials} />
+      <Header socials={socials} />
 
-  //     <section id='hero' className='snap-start'>
-  //       <Hero pageInfo={pageInfo}/>
-  //     </section>
+      <section id="hero" className="snap-start">
+        <Hero pageInfo={pageInfo} />
+      </section>
 
-  //     <section id='portfolio' className='snap-start'>
-  //       <Portfolio videos={videos} genres={genres} />
-  //     </section>
+      <section id="portfolio" className="snap-start">
+        <Portfolio videos={videos} genres={genres} />
+      </section>
 
-  //     <section id='audio' className='snap-start'>
-  //       <AudioComponent audio={audio} />
-  //     </section>
+      <section id="audio" className="snap-start">
+        <AudioComponent audio={audio} />
+      </section>
 
-  //     <section id='skills' className='snap-start'>
-  //       <Skills skills={skills} />
-  //     </section>
+      <section id="skills" className="snap-start">
+        <Skills skills={skills} />
+      </section>
 
-  //     <section id='experience' className='snap-center'>
-  //       <WorkExperience experiences={experiences} />
-  //     </section>
+      <section id="experience" className="snap-center">
+        <WorkExperience experiences={experiences} />
+      </section>
 
-  //     <section id='about' className='snap-center'>
-  //       <About pageInfo={pageInfo}/>
-  //     </section>
+      <section id="about" className="snap-center">
+        <About pageInfo={pageInfo} />
+      </section>
 
-  //     <section id='contact' className='snap-start'>
-  //       <Contact pageInfo={pageInfo}/>
-  //     </section>
+      <section id="contact" className="snap-start">
+        <Contact pageInfo={pageInfo} />
+      </section>
 
-  //     <Link href='#hero'>
-  //       <footer className='sticky bottom-5 w-full cursor-pointer'>
-  //         <div className='flex items-center justify-center'>
-  //           <img
-  //             className='h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer'
-  //             src={urlFor(pageInfo[0]?.profilePic).url()}
-  //             alt='Photo of Michael and link back to Home page'
-  //           />
-  //         </div>
-  //       </footer>
-  //     </Link>
-  //   </div>
-  // )
+      <Link href="#hero">
+        <footer className="sticky bottom-5 w-full cursor-pointer">
+          <div className="flex items-center justify-center">
+            <img
+              className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer"
+              src={urlFor(pageInfo[0]?.profilePic).url()}
+              alt="Photo of Michael and link back to Home page"
+            />
+          </div>
+        </footer>
+      </Link>
+    </div>
+  );
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
