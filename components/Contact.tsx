@@ -2,7 +2,7 @@ import { FiPhone, FiMapPin } from 'react-icons/fi';
 import { BsEnvelope } from 'react-icons/bs';
 import { PageInfo } from '@/typings';
 import { useCallback, useMemo, useState} from 'react';
-import { sendEmail } from '../api/email';
+import { sendEmail } from '../pages/api/email';
 
 interface FormData {
   name: string;

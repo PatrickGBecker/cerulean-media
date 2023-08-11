@@ -7,13 +7,7 @@ import {
   BsVolumeUp,
   BsXLg,
 } from 'react-icons/bs'
-import {  Video } from '../typings'
 import MuiModal from '@mui/material/Modal'
-
-
-interface Props {
-    videos: Video[];
-}
 
 
 function Modal() {

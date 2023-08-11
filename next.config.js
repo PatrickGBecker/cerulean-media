@@ -6,14 +6,15 @@ const nextConfig = {
     SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
     EMAIL: process.env.EMAIL,
     VERIFIED_EMAIL: process.env.VERIFIED_EMAIL,
-    NEXT_PUBLIC_SANITY_PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+    NEXT_PUBLIC_SANITY_PROJECT_ID: 'bcjr23an',
     NEXT_PUBLIC_SANITY_BUILD_TOKEN: process.env.NEXT_PUBLIC_SANITY_BUILD_TOKEN,
+    NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
+    NEXT_PUBLIC_SANITY_DATASET: 'production',
   },
   reactStrictMode: true,
   compiler: {
     styledComponents: true,
   },
-
 
     // by default, if you customize webpack config, they switch back to version 4.
     // Looks like backward compatibility approach.

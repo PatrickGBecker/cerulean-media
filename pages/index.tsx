@@ -53,7 +53,7 @@ export default function Home({
       </section>
 
       <section id='portfolio' className='snap-start'>
-        <Portfolio videos={videos} genres={genres} />
+        <Portfolio genres={genres} />
       </section>
 
       <section id='audio' className='snap-start'>
@@ -102,13 +102,13 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
   return {
     props: {
-      pageInfo,
-      experiences,
-      skills,
-      socials,
-      videos,
-      genres,
-      audio,
+      pageInfo: [],
+      experiences: [],
+      skills: [],
+      socials: [],
+      videos: [],
+      genres: [],
+      audio: [],
     },
     revalidate: 10,
   };

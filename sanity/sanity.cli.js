@@ -5,5 +5,6 @@ export default defineCliConfig({
     projectId: 'bcjr23an',
     dataset: 'production',
     apiVersion: '2021-03-25',
+    useCdn: true,
   }
 })
