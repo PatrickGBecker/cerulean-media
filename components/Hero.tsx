@@ -1,4 +1,3 @@
-import BackgroundCircles from './BackgroundCircles';
 import Link from 'next/link';
 import { PageInfo } from '@/typings';
 import { urlFor } from '@/sanity';
@@ -12,7 +11,6 @@ function Hero({ pageInfo }: Props) {
 
   return (
     <div className='h-screen flex flex-col space-y-6 items-center justify-center text-center overflow-hidden'>
-        <BackgroundCircles />
         <motion.img
             initial={{
                 x: 0,
