@@ -1,7 +1,7 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-import { groq } from "next-sanity";
-import { sanityClient } from "@/sanity";
-import { Experience } from "@/typings";
+import type { NextApiRequest, NextApiResponse } from 'next';
+import { groq } from 'next-sanity';
+import { sanityClient } from '@/sanity';
+import { Experience } from '@/typings';
 
 const query = groq`
     *[_type == "experience"] {
@@ -11,13 +11,21 @@ const query = groq`
 `;
 
 type Data = {
-    experiences: Experience[]
-}
+  experiences: Experience[];
+};
+
+export const getExperiencesStaticPops = async () => {
+  return await sanityClient.fetch<Experience[]>(query);
+};
 
 export default async function handler(
-    req: NextApiRequest,
-    res: NextApiResponse<Data>
+  req: NextApiRequest,
+  res: NextApiResponse<Data | ApiError>
 ) {
-    const experiences: Experience[] = await sanityClient.fetch(query)
-    res.status(200).json({ experiences })
+  try {
+    const experiences = await getExperiencesStaticPops();
+    res.status(200).json({ experiences });
+  } catch (err) {
+    res.status(500).json({ error: 'Error loading experience.' });
+  }
 }

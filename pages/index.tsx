@@ -28,6 +28,12 @@ import Link from 'next/link';
 import { urlFor } from '@/sanity';
 import { getPageStaticInfo } from 'next/dist/build/analysis/get-page-static-info';
 import { getPageStaticProps } from './api/getPageInfo';
+import { getExperiencesStaticPops } from './api/getExperience';
+import { getSkillsStaticProps } from './api/getSkills';
+import { getSocialsStaticProps } from './api/getSocials';
+import { getVideoStaticProps } from './api/getVideos';
+import { getGenreStaticProps } from './api/getGenres';
+import { getAudioStaticProps } from './api/getAudio';
 
 interface Props {
   pageInfo: PageInfo[];
@@ -106,22 +112,22 @@ export default function Home({
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const pageInfo = await getPageStaticProps();
-  const experiences: Experience[] = await fetchExperiences();
-  // const skills: SkillType[] = await fetchSkills();
-  // const socials: Social[] = await fetchSocials();
-  // const videos: Video[] = await fetchVideos();
-  // const genres: Genre[] = await fetchGenres();
-  // const audio: Audio[] = await fetchAudio();
+  const experiences = await getExperiencesStaticPops();
+  const skills = await getSkillsStaticProps();
+  const socials = await getSocialsStaticProps();
+  const videos = await getVideoStaticProps();
+  const genres = await getGenreStaticProps();
+  const audio = await getAudioStaticProps();
 
   return {
     props: {
-      pageInfo: [],
-      experiences: [],
-      skills: [],
-      socials: [],
-      videos: [],
-      genres: [],
-      audio: [],
+      pageInfo,
+      experiences,
+      skills,
+      socials,
+      videos,
+      genres,
+      audio,
     },
     revalidate: 10,
   };

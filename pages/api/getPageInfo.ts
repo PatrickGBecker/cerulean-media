@@ -2,18 +2,17 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { groq } from 'next-sanity';
 import { sanityClient } from '@/sanity';
 import { PageInfo } from '@/typings';
-import { error } from 'console';
 
 const query = groq`
     *[_type == "pageInfo"]
 `;
 
 type Data = {
-  pageInfo: PageInfo;
+  pageInfo: PageInfo[];
 };
 
 export const getPageStaticProps = async () => {
-  return await sanityClient.fetch<PageInfo>(query);
+  return await sanityClient.fetch<PageInfo[]>(query);
 };
 
 export default async function handler(
