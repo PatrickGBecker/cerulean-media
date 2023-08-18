@@ -10,8 +10,12 @@ module.exports = {
   theme: {
     extend: {},
   },
+  corePlugins: {
+    aspectRatio: false,
+  },
   plugins: [
     require("tailwind-scrollbar"),
-    require("flowbite/plugin")
+    require("flowbite/plugin"),
+    require('@tailwindcss/aspect-ratio'),
   ],
 }

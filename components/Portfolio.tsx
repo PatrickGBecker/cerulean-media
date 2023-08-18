@@ -17,16 +17,16 @@ function Portfolio({ videos, genres }: Props) {
    
   return (
     <div className='h-screen relative flex flex-col text-center justify-evenly mx-auto items-center pb-2'>
-      <h3 className='hidden md:inline-flex absolute top-10 uppercase tracking-[20px] text-[#85caff] text-2xl'> 
+      <h3 className='hidden md:inline-flex absolute top-6 uppercase tracking-[20px] text-[#85caff] text-2xl'> 
             Videography
         </h3> 
       <div
-        className={`pl-4 relative flex flex-col text-left md:flex-row max-w-full mx-auto z-0 lg:h-[140vh] ${
+        className={`relative flex flex-col text-left md:flex-row max-w-full mx-auto z-0 lg:h-[140vh] ${
           showModal && '!h-screen overflow-hidden'
         }`}>
 
-      <main className="relative md:pb-24 lg:space-y-24 lg:pl-16 ">
-        <section className="space-y-16 md:space-y-24 overscroll-hidden">
+      <main className="relative space-y-10 lg:space-y-20 lg:pl-16 ">
+        <section className="space-y-12 md:space-y-20">
         {genres.map((genre) => (
           <Row key={genre._id} 
               title={genre.title} 

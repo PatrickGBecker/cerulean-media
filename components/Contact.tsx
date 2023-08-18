@@ -59,17 +59,17 @@ function Contact({ pageInfo }: Props) {
         <div className="space-y-10">
           <div className="flex items-center space-x-5 justify-center">
             <FiPhone className="text-[#85caff] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">{pageInfo[0]?.phoneNumber}</p>
+            <p className="text-xl md:text-2xl">{pageInfo[0]?.phoneNumber}</p>
           </div>
 
           <div className="flex items-center space-x-5 justify-center">
             <FiMapPin className="text-[#85caff] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">{pageInfo[0].address}</p>
+            <p className="text-xl md:text-2xl">{pageInfo[0].address}</p>
           </div>
 
           <div className="flex items-center space-x-5 justify-center">
             <BsEnvelope className="text-[#85caff] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">{pageInfo[0].email}</p>
+            <p className="text-xl md:text-2xl">{pageInfo[0].email}</p>
           </div>
         </div>
 

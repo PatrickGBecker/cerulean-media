@@ -12,6 +12,6 @@
         hover:border-[#85caff]/70 hover:text-[#85caff]/70 hover:bg-[#34597e]/70
     }
     .modalButton {
-         @apply flex h-11 w-11 text-[#85caff] items-center justify-center rounded-full border-2 border-[gray] bg-[#2a2a2a]/60 transition hover:border-[#51b4ff] hover:bg-[#34597e]/60;
+         @apply flex h-6 w-6 md:h-11 md:w-11 text-[#85caff] items-center justify-center rounded-full border-2 border-[gray] bg-[#2a2a2a]/60 transition hover:border-[#51b4ff] hover:bg-[#34597e]/60;
     }
 }

@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { PageInfo } from '@/typings';
 import { urlFor } from '@/sanity';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+import ceruleanLogo from '@/public/assets/ceruleanLogo.png';
 
 type Props = {
   pageInfo: PageInfo[];
@@ -11,29 +13,15 @@ function Hero({ pageInfo }: Props) {
 
   return (
     <div className='h-screen flex flex-col space-y-6 items-center justify-center text-center overflow-hidden'>
-        <motion.img
-            initial={{
-                x: 0,
-                opacity: 0,
-            }}
-            whileInView={{
-                x: 0,
-                opacity: 1,
-            }}
-            transition={{
-                duration: 2.5,
-                ease: [0.17, 0.37, 0.63, 0.87],
-            }}
-            viewport={{
-                once: true
-            }}
-            className='relative rounded-full h-40 w-40 object-cover'
-            src={urlFor(pageInfo[0]?.heroImage).url()}
-            alt='Photo of Michael'
+        <Image
+            src={ceruleanLogo}
+            alt="Logo of a camera wearing headphones"
+            width={600}
+            height={600}
         />
         <div className='z-20'>
-            <h2 className='text-sm uppercase text-[#51b4ff] pb-2 tracking-[15px]'>{pageInfo[0]?.role}</h2>
-            <h1 className='text-5xl lg:text-6xl font-semibold px-10 tracking-[2px]'>
+            <h2 className='text-sm uppercase text-[#51b4ff] pb-2 tracking-[5px] md:tracking-[15px]'>{pageInfo[0]?.role}</h2>
+            <h1 className='hidden md:text-5xl lg:text-6xl font-semibold px-10 md:tracking-[2px]'>
                 <span className='mr-3'>Welcome to Cerulean Media</span>
                 
             </h1>

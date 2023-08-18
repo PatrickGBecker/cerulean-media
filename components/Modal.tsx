@@ -30,14 +30,14 @@ function Modal() {
     <MuiModal
       open={showModal}
       onClose={handleClose}
-      className="fixed !top-7 left-0 right-0 z-50 mx-auto w-full max-w-5xl overflow-hidden overflow-y-scroll rounded-md scrollbar-hide"
+      className="fixed !top-28 md:!top-16 left-0 right-0 z-50 mx-auto w-full max-w-5xl overflow-hidden overflow-y-scroll rounded-md scrollbar-hide"
     >
       <>
         <button
-          className="modalButton absolute right-5 top-5 !z-40 h-9 w-9 border-none"
+          className="modalButton absolute right-5 top-5 !z-40 h-4 w-4 md:h-9 md:w-9 border-none"
           onClick={handleClose}
         >
-          <BsXLg className="h-8 w-8" />
+          <BsXLg className="h-4 w-4 md:h-8 md:w-8" />
         </button>
 
         <div className="relative pt-[60%]">
@@ -60,7 +60,7 @@ function Modal() {
             </button>
           </div>
         </div>
-        <div className="flex space-x-16 rounded-b-md bg-[#1e3348] px-10 py-8">
+        <div className="flex space-x-16 rounded-b-md bg-[#1e3348] px-8 py-4">
           <div className="space-y-6 text-lg">
             <div className="flex items-center space-x-2 text-sm">
               <p className="font-light text-[#85caff]">

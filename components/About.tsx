@@ -46,10 +46,7 @@ export default function About({ pageInfo }: Props) {
 
 
         <div className='space-y-10 px-0 md:px-10'>
-            <h4 className='text-4xl font-semibold'>Here is <span className='underline decoration-[#85caff]/40'>some</span>{" "}
-            backstory
-            </h4>
-            <p className='text-base'>{pageInfo[0].backgroundInformation}</p>
+            <p className='text-lg md:text-4xl'>{pageInfo[0].backgroundInformation}</p>
         </div>
     </motion.div>
   )

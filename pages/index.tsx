@@ -18,7 +18,8 @@ import {
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-import { urlFor } from '@/sanity';
+import Image from 'next/image';
+import miniLogo from '../public/assets/mini-logo.png';
 
 import { getPageStaticProps } from './api/getPageInfo';
 import { getExperiencesStaticPops } from './api/getExperience';
@@ -54,7 +55,7 @@ export default function Home({
         <title>Cerulean Media, LLC. Company Site</title>
         <meta name="description" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/mini-logo.ico" />
       </Head>
 
       <Header socials={socials} />
@@ -90,10 +91,12 @@ export default function Home({
       <Link href="#hero">
         <footer className="sticky bottom-5 w-full cursor-pointer">
           <div className="flex items-center justify-center">
-            <img
-              className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer"
-              src={urlFor(pageInfo[0]?.profilePic).url()}
-              alt="Photo of Michael and link back to Home page"
+            <Image
+              className="rounded-full filter grayscale hover:grayscale-0 cursor-pointer"
+              src={miniLogo}
+              alt="logo of a camera wearing headphones"
+              width={50}
+              height={50}
             />
           </div>
         </footer>
