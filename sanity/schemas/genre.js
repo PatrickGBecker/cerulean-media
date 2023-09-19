@@ -10,11 +10,9 @@ export default {
             type: 'string',
         },
         {
-            name: 'featured',
-            title: 'Featured',
-            description: 'Is this a featured genre?',
-            type: 'boolean',
-            initialValue: false,
+            name: 'order',
+            title: 'Order',
+            type: 'number',
         },
         {
             name: 'slug',
