@@ -5,7 +5,7 @@ import { Genre } from '@/typings';
 
 const query = groq`
     *[_type == 'genre'] {
-    _id, title,
+    _id, title, order
     'videos': *[_type == 'video' && references(^._id)]
 }
 `;

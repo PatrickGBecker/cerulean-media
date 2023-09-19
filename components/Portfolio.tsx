@@ -13,8 +13,9 @@ type Props = {
 function Portfolio({ videos, genres }: Props) {
    const showModal = useRecoilValue(modalState)
    const video = useRecoilValue(videoState)
+   const genreOrder = genres.map((genre) => genre.order)
  
-   
+
   return (
     <div className='h-screen relative flex flex-col text-center justify-evenly mx-auto items-center pb-2'>
       <h3 className='hidden md:inline-flex absolute top-6 uppercase tracking-[20px] text-[#85caff] text-2xl'> 
@@ -27,7 +28,7 @@ function Portfolio({ videos, genres }: Props) {
 
       <main className="relative space-y-10 lg:space-y-20 lg:pl-16 ">
         <section className="space-y-12 md:space-y-20">
-        {genres.map((genre) => (
+        {genres.sort((a, b) => a.order - b.order).map((genre) => (
           <Row key={genre._id} 
               title={genre.title} 
               videos={genre.videos} />

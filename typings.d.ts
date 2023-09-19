@@ -22,9 +22,8 @@ export interface Genre extends SanityBody {
   _type: 'genre';
   name: string;
   title: string;
-  description: string;
+  order: number;
   videos: Video[];
-  featured: boolean;
   banner: Image;
   slug: {
     _type: 'slug';
@@ -37,6 +36,7 @@ export interface Audio extends SanityBody {
   title: string;
   url: string;
   description: string;
+  order: number;
 }
 export interface Video extends SanityBody {
   _type: 'video';
