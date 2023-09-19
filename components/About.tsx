@@ -46,7 +46,7 @@ export default function About({ pageInfo }: Props) {
 
 
         <div className='space-y-10 px-0 md:px-10'>
-            <p className='text-lg md:text-4xl'>{pageInfo[0].backgroundInformation}</p>
+            <p className='text-lg md:text-2xl'>{pageInfo[0].backgroundInformation}</p>
         </div>
     </motion.div>
   )
