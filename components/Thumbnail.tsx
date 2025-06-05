@@ -13,7 +13,7 @@ function Thumbnail({ video }: Props) {
 
   return (
     <div
-      className={`flex flex-col pl-2 m-0.5 relative h-24 min-w-[180px] cursor-pointer transition duration-200 ease-out md:h-36 md:min-w-[260px] md:hover:scale-110`}
+      className={`flex flex-col pl-2 m-0.5 relative h-24 min-w-[180px] cursor-pointer transition duration-200 ease-out hover:scale-110 md:h-36 md:min-w-[260px] md:hover:scale-110 lg:hover:scale-110`}
       onClick={() => {
         setCurrentMovie(video)
         setShowModal(true)

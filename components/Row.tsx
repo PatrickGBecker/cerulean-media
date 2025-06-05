@@ -18,7 +18,7 @@ function Row({ title, videos }: Props) {
       </h2>
       
         <div
-          className="flex items-center space-x-0.5 space-y-1 overflow-x-scroll md:space-x-2.5 md:p-2 scrollbar-thin scrollbar-thumb-[#4a7eb3]/40 scrollbar-track-transparent"
+          className="flex items-center space-x-0.5 space-y-1 overflow-x-scroll md:space-x-2.5 md:p-2 scrollbar-thin scrollbar-thumb-[#4a7eb3]/80 scrollbar-track-transparent"
         >
           {videos.map((video) => ( 
             <div key={video._id}>
