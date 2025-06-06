@@ -1,4 +1,4 @@
-import { Audio } from '@/typings'
+import type { Audio } from '@/typings'
 
 type Props = {
   audio: Audio[];

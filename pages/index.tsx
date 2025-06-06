@@ -11,13 +11,14 @@ import { fetchPageInfo } from '../utils/fetchPageInfo';
 import { fetchExperiences } from '../utils/fetchExperiences';
 import { fetchSkills } from '../utils/fetchSkills';
 import { fetchSocials } from '../utils/fetchSocials';
-import { fetchVideos } from '@/utils/fetchVideos'
-import { fetchGenres } from '@/utils/fetchGenres'
-import { fetchAudio } from '@/utils/fetchAudio'
-import { GetStaticProps } from 'next'
-import Head from 'next/head'
-import Link from 'next/link'
-import { urlFor } from '@/sanity'
+import { fetchVideos } from '@/utils/fetchVideos';
+import { fetchGenres } from '@/utils/fetchGenres';
+import { fetchAudio } from '@/utils/fetchAudio';
+import { GetStaticProps } from 'next';
+import Head from 'next/head';
+import Link from 'next/link';
+import { urlFor } from '@/sanity';
+import ceruleanLogo from '@/public/ceruleanLogo.png'
 
 
 
@@ -81,7 +82,7 @@ export default function Home({
           <div className='flex items-center justify-center'>
             <img 
               className='h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer'
-              src={urlFor(pageInfo[0]?.profilePic).url()}
+              src={ceruleanLogo}
               alt='Photo of Michael and link back to Home page'
             />
           </div>
