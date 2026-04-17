@@ -11,8 +11,8 @@ function Portfolio({ videos, genres }: Props) {
     <>
       {genres
         .sort((a, b) => a.order - b.order)
-        .map((genre) => (
-          <section key={genre._id} className="snap-start">
+        .map((genre, index) => (
+          <section key={genre._id} id={index === 0 ? 'portfolio' : undefined} className="snap-start">
             <Row title={genre.title} videos={genre.videos} />
           </section>
         ))}
