@@ -9,43 +9,30 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
-    "@icons-pack/react-simple-icons": "^6.3.0",
-    "@mui/material": "^5.11.15",
-    "@portabletext/react": "^2.0.2",
-    "@sanity/image-url": "^1.0.2",
-    "@sendgrid/mail": "^8.1.5",
-    "@types/node": "18.14.2",
-    "@types/react": "18.0.28",
-    "@types/react-dom": "18.0.11",
-    "axios": "^1.4.0",
-    "eslint-config-next": "^14.2.15",
-    "flowbite": "^1.6.5",
-    "flowbite-react": "^0.4.4",
-    "framer-motion": "^10.0.1",
-    "fs": "^0.0.1-security",
-    "next": "^14.2.15",
-    "next-sanity": "^0.8.5",
+    "@sanity/image-url": "^1.1.0",
+    "eslint-config-next": "^15.5.15",
+    "framer-motion": "^11.18.2",
+    "next": "^15.5.15",
+    "next-sanity": "^9.8.38",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-hook-form": "^7.43.3",
-    "react-hot-toast": "^2.4.0",
-    "react-icons": "^4.8.0",
-    "react-player": "^2.12.0",
-    "react-responsive-carousel": "^3.2.23",
-    "react-simple-typewriter": "^5.0.1",
-    "react-social-icons": "^5.15.0",
-    "recoil": "^0.7.7",
-    "sanity": "^2.36.6",
-    "styled-components": "^6.1.18",
-    "typescript": "4.9.5"
+    "react-icons": "^5.5.0",
+    "react-player": "^2.16.0",
+    "typescript": "^5.8.3"
+  },
+  "overrides": {
+    "glob": "^11.0.0",
+    "prismjs": "^1.30.0"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
-    "autoprefixer": "^10.4.13",
-    "postcss": "^8.4.21",
-    "tailwind-scrollbar": "^2.1.0",
-    "tailwindcss": "^3.4.17"
+    "@types/node": "^22.14.1",
+    "@types/react": "^18.3.20",
+    "@types/react-dom": "^18.3.6",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwind-scrollbar": "^3.1.0",
+    "tailwindcss": "^3.4.17",
+    "tailwindcss-animated": "^2.0.0"
   }
 }

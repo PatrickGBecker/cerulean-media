@@ -32,5 +32,12 @@ export default {
             title: 'Description',
             type: 'string',
         },
+        {
+            name: 'isFavorite',
+            title: '⭐ Favorite',
+            type: 'boolean',
+            description: 'Set as the default featured video in its genre carousel',
+            initialValue: false,
+        },
     ],
 }

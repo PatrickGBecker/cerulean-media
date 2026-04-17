@@ -21,7 +21,14 @@ export default {
         {
             name: 'order',
             title: 'Order',
-            type: 'number'
+            type: 'number',
+        },
+        {
+            name: 'isFavorite',
+            title: '⭐ Favorite',
+            type: 'boolean',
+            description: 'Set as the default featured album in the audio carousel',
+            initialValue: false,
         },
     ],
 }

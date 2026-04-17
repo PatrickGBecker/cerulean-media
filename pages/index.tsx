@@ -38,7 +38,6 @@ interface Props {
   genres: Genre[];
   audio: Audio[];
 }
-``;
 
 export default function Home({
   pageInfo,
@@ -64,9 +63,7 @@ export default function Home({
         <Hero pageInfo={pageInfo} />
       </section>
 
-      <section id="portfolio" className="snap-start">
-        <Portfolio videos={videos} genres={genres} />
-      </section>
+      <Portfolio videos={videos} genres={genres} />
 
       <section id="audio" className="snap-start">
         <AudioComponent audio={audio} />
