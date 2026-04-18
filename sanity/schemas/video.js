@@ -33,11 +33,11 @@ export default {
             type: 'string',
         },
         {
-            name: 'isFavorite',
-            title: '⭐ Favorite',
-            type: 'boolean',
-            description: 'Set as the default featured video in its genre carousel',
-            initialValue: false,
+            name: 'order',
+            title: 'Order',
+            type: 'number',
+            description: 'Controls display order (lower numbers appear first)',
+            initialValue: 0,
         },
     ],
 }

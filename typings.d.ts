@@ -37,7 +37,6 @@ export interface Audio extends SanityBody {
   url: string;
   description: string;
   order: number;
-  isFavorite?: boolean;
 }
 export interface Video extends SanityBody {
   _type: 'video';
@@ -46,7 +45,7 @@ export interface Video extends SanityBody {
   url: string;
   genre: Genre[];
   description: string;
-  isFavorite?: boolean;
+  order?: number;
 }
 export interface Technology extends SanityBody {
   _type: 'skill';

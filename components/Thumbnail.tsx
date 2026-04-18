@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ReactPlayer from 'react-player/lazy';
 import { BsPlayCircle, BsXLg } from 'react-icons/bs';
 import { Video } from '../typings';
@@ -12,7 +12,11 @@ interface Props {
 function Thumbnail({ video, isActive = false }: Props) {
   const [isPlaying, setIsPlaying] = useState(false);
 
-  // Active center item: playing video
+  // Stop video whenever this card loses focus
+  useEffect(() => {
+    if (!isActive) setIsPlaying(false);
+  }, [isActive]);
+
   if (isActive && isPlaying) {
     return (
       <div
@@ -25,7 +29,7 @@ function Thumbnail({ video, isActive = false }: Props) {
             width="100%"
             height="100%"
             style={{ position: 'absolute', top: 0, left: 0 }}
-            playing
+            playing={isPlaying && isActive}
             controls
           />
         </div>
@@ -48,7 +52,6 @@ function Thumbnail({ video, isActive = false }: Props) {
     );
   }
 
-  // Thumbnail card
   return (
     <div
       className="rounded-2xl overflow-hidden select-none"
@@ -60,7 +63,6 @@ function Thumbnail({ video, isActive = false }: Props) {
         }
       }}
     >
-      {/* Image container — fixed 16:9, fully filled */}
       <div
         className="relative overflow-hidden bg-[#0d1b2a]"
         style={{ paddingTop: '56.25%' }}
@@ -71,16 +73,12 @@ function Thumbnail({ video, isActive = false }: Props) {
           className="absolute inset-0 w-full h-full object-cover"
           draggable={false}
         />
-
-        {/* Play overlay on active center item */}
         {isActive && (
           <div className="absolute inset-0 bg-black/0 hover:bg-black/30 transition-all duration-300 flex items-center justify-center cursor-pointer group/play">
             <BsPlayCircle className="h-14 w-14 md:h-20 md:w-20 text-white opacity-0 group-hover/play:opacity-90 transition-opacity duration-300 drop-shadow-xl" />
           </div>
         )}
       </div>
-
-      {/* Title bar */}
       <div className="bg-[#0d1b2a] px-5 py-3">
         <p className="text-sm md:text-base text-[#85caff]/80 truncate">
           {video?.description}
