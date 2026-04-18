@@ -34,7 +34,7 @@ function Portfolio({ videos, genres }: Props) {
       {/* Tile genres — all on one page */}
       {tileGenres.length > 0 && (
         <section className="snap-start">
-          <div className="h-screen flex flex-col justify-center px-4 md:px-8 lg:px-16 space-y-6 md:space-y-10 overflow-hidden">
+          <div className="h-screen flex flex-col justify-center px-4 md:px-8 lg:px-16 space-y-4 md:space-y-6 overflow-hidden">
             {tileGenres.map((genre) => (
               <TileGrid key={genre._id} title={genre.title} videos={genre.videos} />
             ))}

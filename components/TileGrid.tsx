@@ -36,7 +36,7 @@ function TileGrid({ title, videos }: Props) {
 
   return (
     <div>
-      <h2 className="text-lg md:text-2xl font-semibold text-[#85caff] mb-3 md:mb-4 text-center tracking-wide uppercase">
+      <h2 className="text-base md:text-lg font-semibold text-[#85caff] mb-2 md:mb-3 text-center tracking-wide uppercase">
         {title}
       </h2>
 
@@ -70,7 +70,7 @@ function TileGrid({ title, videos }: Props) {
             return (
               <div
                 key={video._id}
-                className="flex-shrink-0 w-[260px] md:w-[300px] lg:w-[340px] rounded-xl overflow-hidden bg-[#0d1b2a] shadow-lg shadow-black/40"
+                className="flex-shrink-0 w-[200px] md:w-[230px] lg:w-[260px] rounded-xl overflow-hidden bg-[#0d1b2a] shadow-lg shadow-black/40"
               >
                 {isPlaying ? (
                   <>
@@ -84,9 +84,10 @@ function TileGrid({ title, videos }: Props) {
                         controls
                       />
                     </div>
-                    <div className="flex items-center justify-between px-3 py-2">
+                    {video?.description && (
+                    <div className="hidden md:flex items-center justify-between px-3 py-2">
                       <p className="text-xs text-[#85caff] truncate flex-1 mr-2">
-                        {video?.description}
+                        {video.description}
                       </p>
                       <button
                         onClick={() => setPlayingId(null)}
@@ -96,6 +97,7 @@ function TileGrid({ title, videos }: Props) {
                         <BsXLg className="h-3 w-3 text-[#85caff]" />
                       </button>
                     </div>
+                    )}
                   </>
                 ) : (
                   <>
@@ -113,11 +115,13 @@ function TileGrid({ title, videos }: Props) {
                         <BsPlayCircle className="h-8 w-8 md:h-10 md:w-10 text-white opacity-0 group-hover/tile:opacity-90 transition-opacity duration-300 drop-shadow-lg" />
                       </div>
                     </div>
-                    <div className="px-3 py-2">
+                    {video?.description && (
+                    <div className="hidden md:block px-3 py-2">
                       <p className="text-xs text-[#85caff]/80 truncate">
-                        {video?.description}
+                        {video.description}
                       </p>
                     </div>
+                    )}
                   </>
                 )}
               </div>
