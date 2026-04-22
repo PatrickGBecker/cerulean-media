@@ -20,8 +20,7 @@ function Thumbnail({ video, isActive = false }: Props) {
   if (isActive && isPlaying) {
     return (
       <div
-        className="rounded-2xl overflow-hidden bg-black shadow-2xl shadow-black/80"
-        style={{ width: '55vw', maxWidth: '900px' }}
+        className="rounded-2xl overflow-hidden bg-black shadow-2xl shadow-black/80 w-[90vw] md:w-[55vw] max-w-[900px]"
       >
         <div className="relative" style={{ paddingTop: '56.25%' }}>
           <ReactPlayer
@@ -54,8 +53,7 @@ function Thumbnail({ video, isActive = false }: Props) {
 
   return (
     <div
-      className="rounded-2xl overflow-hidden select-none"
-      style={{ width: '55vw', maxWidth: '900px' }}
+      className="rounded-2xl overflow-hidden select-none w-[90vw] md:w-[55vw] max-w-[900px]"
       onClick={(e) => {
         if (isActive) {
           e.stopPropagation();
